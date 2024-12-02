@@ -21,12 +21,18 @@
     <ClCompile Include="ToeTacTic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BigTicTacToe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BoardGame_Classes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ToeTacTic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BigTicTacToe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
