@@ -47,6 +47,13 @@ void Big_RandomPlayer::getmove(int& x, int& y) {
 }
 
 
+bool Big_Board::game_is_over() {
+	if (winner == -1)
+		return false;
+	cout << (winner == 1 ? "Player 1 " : "Player 2 ") << "won\n";
+	return true;
+}
+
 bool Big_Board::update_board(int x, int y, char symbol) {
 	if (this->board[x][y] != '-' && !game_is_over()) {
 		return false;
@@ -73,7 +80,7 @@ void Big_Board::count(int x, int y, int dirx, int diry, char symb, int& counter,
 }
 
 bool Big_Board::is_win() {
-	if (this->n_moves == 25) {
+	if (this->n_moves == 24) {
 		int count[2]{ 0,0 };
 		for (int x = 0; x < 5; x++) {
 			for (int y = 0; y < 5; y++) {
@@ -101,8 +108,8 @@ bool Big_Board::is_win() {
 		}
 		
 	}
-	if ((winner == 1 && n_moves % 2 == 0) || (winner == 2 && n_moves % 2 == 1)) {
+	/*if ((winner == 1 && n_moves % 2 == 0) || (winner == 2 && n_moves % 2 == 1)) {
 		return true;
-	}
+	}*/
 	return false;
 }

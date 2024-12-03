@@ -28,7 +28,7 @@ public:
 	Big_Board();
 	bool is_win() override;
 	bool is_draw() override { return winner == 0; };
-	bool game_is_over() override { return winner != -1; };
+	bool game_is_over() override;
 	bool update_board(int x, int y, char symbol) override;
 	void display_board() override;
 	void count(int x, int y, int dirx, int diry,char symbol, int& counter,int count = 0);

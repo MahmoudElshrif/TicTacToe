@@ -76,8 +76,8 @@ void bigboard() {
     cout << "Welcome to 5x5 Tic Tac Toe\n";
 
     // Set up player 1
-    cout << "Enter Player X name: ";
-    cin >> player2Name;
+    //cout << "Enter Player X name: ";
+    //cin >> player2Name;
     cout << "Choose Player X type:\n";
     cout << "1. Human\n";
     cout << "2. Random Computer\n";
@@ -85,8 +85,8 @@ void bigboard() {
 
 
     // Set up player 2
-    cout << "Enter Player 2 name: ";
-    cin >> playerXName;
+    //cout << "Enter Player 2 name: ";
+    //cin >> playerXName;
     cout << "Choose Player 2 type:\n";
     cout << "1. Human\n";
     cout << "2. Random Computer\n";
@@ -94,10 +94,10 @@ void bigboard() {
 
     switch (choice1) {
     case 1:
-        players[0] = new Big_Player(playerXName, 'X');
+        players[0] = new Big_Player("Player 1", 'X');
         break;
     case 2:
-        players[0] = new Big_RandomPlayer(playerXName, 'X');
+        players[0] = new Big_RandomPlayer("Player 1", 'X');
         break;
     default:
         cout << "Invalid choice for Player 1. Exiting the game.\n";
@@ -106,10 +106,10 @@ void bigboard() {
 
     switch (choice2) {
     case 1:
-        players[1] = new Big_Player(player2Name, 'O');
+        players[1] = new Big_Player("Player 2", 'O');
         break;
     case 2:
-        players[1] = new Big_RandomPlayer(player2Name, 'O');
+        players[1] = new Big_RandomPlayer("Player 2", 'O');
         break;
     default:
         cout << "Invalid choice for Player 2. Exiting the game.\n";
@@ -133,7 +133,7 @@ void bigboard() {
 
 int main() {
 
-    bigboard();
+    reverse();
 
     return 0;
 }
