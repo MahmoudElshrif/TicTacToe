@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ToeTacTic.h"
-#include "BigTicTacToe.h"
-
+#include "FiveTicTacToe.h"
+#include "numtictactoe.cpp"
 
 using namespace std;
 
@@ -70,7 +70,7 @@ void bigboard() {
     srand(time(0));
     int choice1, choice2;
     Player<char>* players[2];
-    Big_Board* B = new Big_Board();
+    Five_Board* B = new Five_Board();
     string playerXName, player2Name;
 
     cout << "Welcome to 5x5 Tic Tac Toe\n";
@@ -94,10 +94,10 @@ void bigboard() {
 
     switch (choice1) {
     case 1:
-        players[0] = new Big_Player("Player 1", 'X');
+        players[0] = new Five_Player("Player 1", 'X');
         break;
     case 2:
-        players[0] = new Big_RandomPlayer("Player 1", 'X');
+        players[0] = new Five_RandomPlayer("Player 1", 'X');
         break;
     default:
         cout << "Invalid choice for Player 1. Exiting the game.\n";
@@ -106,10 +106,10 @@ void bigboard() {
 
     switch (choice2) {
     case 1:
-        players[1] = new Big_Player("Player 2", 'O');
+        players[1] = new Five_Player("Player 2", 'O');
         break;
     case 2:
-        players[1] = new Big_RandomPlayer("Player 2", 'O');
+        players[1] = new Five_RandomPlayer("Player 2", 'O');
         break;
     default:
         cout << "Invalid choice for Player 2. Exiting the game.\n";
@@ -133,7 +133,6 @@ void bigboard() {
 
 int main() {
 
-    reverse();
 
     return 0;
 }

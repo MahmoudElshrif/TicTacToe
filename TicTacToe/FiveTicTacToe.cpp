@@ -1,7 +1,7 @@
-#include "BigTicTacToe.h"
+#include "FiveTicTacToe.h"
 
 
-void Big_Player::getmove(int& x, int& y) {
+void Five_Player::getmove(int& x, int& y) {
 	cout << "Row: ";
 	cin >> x;
 	cout << "Column: ";
@@ -17,7 +17,7 @@ void Big_Player::getmove(int& x, int& y) {
 }
 
 
-Big_Board::Big_Board() {
+Five_Board::Five_Board() {
 	this->board = new char* [5];
 	for (int x = 0; x < 5; x++) {
 		this->board[x] = new char[5];
@@ -28,7 +28,7 @@ Big_Board::Big_Board() {
 }
 
 
-void Big_Board::display_board() {
+void Five_Board::display_board() {
 	if (game_is_over())
 		return;
 	for (int x = 0; x < 5; x++) {
@@ -41,20 +41,20 @@ void Big_Board::display_board() {
 }
 
 
-void Big_RandomPlayer::getmove(int& x, int& y) {
+void Five_RandomPlayer::getmove(int& x, int& y) {
 	x = rand() % 5;
 	y = rand() % 5;
 }
 
 
-bool Big_Board::game_is_over() {
+bool Five_Board::game_is_over() {
 	if (winner == -1)
 		return false;
 	cout << (winner == 1 ? "Player 1 " : "Player 2 ") << "won\n";
 	return true;
 }
 
-bool Big_Board::update_board(int x, int y, char symbol) {
+bool Five_Board::update_board(int x, int y, char symbol) {
 	if (this->board[x][y] != '-' && !game_is_over()) {
 		return false;
 	}
@@ -66,7 +66,7 @@ bool Big_Board::update_board(int x, int y, char symbol) {
 
 
 
-void Big_Board::count(int x, int y, int dirx, int diry, char symb, int& counter,int count) {
+void Five_Board::count(int x, int y, int dirx, int diry, char symb, int& counter,int count) {
 	if (x > 4 || y > 4 || x < 0 || y < 0)
 		return;
 	if (board[x][y] != symb) {
@@ -79,7 +79,7 @@ void Big_Board::count(int x, int y, int dirx, int diry, char symb, int& counter,
 	this->count(x + dirx, y + diry, dirx, diry, symb, counter, count + 1);
 }
 
-bool Big_Board::is_win() {
+bool Five_Board::is_win() {
 	if (this->n_moves == 24) {
 		int count[2]{ 0,0 };
 		for (int x = 0; x < 5; x++) {

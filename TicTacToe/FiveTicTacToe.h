@@ -4,28 +4,28 @@
 
 
 
-class Big_Player : public Player<char> {
+class Five_Player : public Player<char> {
 public:
-	Big_Player(string name, char symbol) : Player<char>(name, symbol) {};
-	Big_Player(char symbol) : Player<char>(symbol) {};
+	Five_Player(string name, char symbol) : Player<char>(name, symbol) {};
+	Five_Player(char symbol) : Player<char>(symbol) {};
 	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
 	void getmove(int& x, int& y) override;
 
 };
 
-class Big_RandomPlayer : public Player<char> {
+class Five_RandomPlayer : public Player<char> {
 public:
-	Big_RandomPlayer(string name, char symbol) : Player<char>(name, symbol) {};
+	Five_RandomPlayer(string name, char symbol) : Player<char>(name, symbol) {};
 	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
 	void getmove(int& x, int& y) override;
 
 };
 
-class Big_Board : public Board<char> {
+class Five_Board : public Board<char> {
 private:
 	int winner = -1;
 public:
-	Big_Board();
+	Five_Board();
 	bool is_win() override;
 	bool is_draw() override { return winner == 0; };
 	bool game_is_over() override;
