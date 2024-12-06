@@ -40,16 +40,15 @@ bool BigBoard::update_board(int x,int y,char symb) {
 	int counter = 0;
 	board[boardx][boardy] = boards[boardx][boardy].getValue();
 
-	for (int i = -1; i < 2; i++) {
-		for (int j = -1; j < 2; j++) {
-			if (i == 0 && j == 0) continue;
-			if (count_moves(board, boardx, boardy, i, j, symb)) {
-				win = true;
-				return true;
-			};
-		}
-	}
+	win = false;
+	win = win || countmo(board, boardx, boardy, 1, -1, symb);
+	win = win || countmo(board, boardx, boardy, 1, 0, symb);
+	win = win || countmo(board, boardx, boardy, 1, 1, symb);
+	win = win || countmo(board, boardx, boardy, 0, 1, symb);
 
+	if (win) {
+		return true;
+	}
 
 	this->draw = true; 
 	for (int i = 0; i < 3; i++) {
@@ -101,12 +100,12 @@ void BigBoard::display_board() {
 				cout << " | ";
 			}
 		}
-		cout << " " << x << endl;
+		cout << endl;
 		if ((x + 1) % 3 == 0 && x != 8) {
-			cout << "-----*-----*-----" << endl;
+			cout << "------*-----*------" << endl;
 		}
 	}
-	cout << "  012   345   678" << endl;
+
 
 }
 
@@ -140,16 +139,19 @@ bool SubBoard::makeMove(int x, int y, char symb) {
 
 	moves++;
 	board[x][y] = symb;
-	for (int i = -1; i < 3; i++) {
-		for (int j = -1; j < 3; j++) {
-			if (j == 0 && i == 0) continue;
-			auto count = count_moves(board, x, y, i, j, symb);
-			if (count) {
-				current = symb;
-				isOver = true;
-				return true;
-			}
-		}
+	
+
+	bool win = false;
+
+	win = win || countmo(board, x, y, 1, -1, symb);
+	win = win || countmo(board, x, y, 1, 0, symb);
+	win = win || countmo(board, x, y, 1, 1, symb);
+	win = win || countmo(board, x, y, 0, 1, symb);
+
+	if (win) {
+		isOver = true;
+		current = symb;
+		return true;
 	}
 
 	if (moves == 9) {
