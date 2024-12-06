@@ -194,7 +194,24 @@ void bigboard() {
 
 int main() {
 
-    bigboard();
+    cout << "1) Inverse Tic Tac Toe\n";
+    cout << "2) 5x5 Tic Tac Toe\n";
+    cout << "3) Big Tic Tac Toe\n";
+
+    int op;
+    cin >> op;
+
+    switch (op) {
+    case 1:
+        reverse();
+        break;
+    case 2:
+        fiveboard();
+        break;
+    case 3:
+        bigboard();
+        break;
+    }
 
     return 0;
 }
