@@ -177,3 +177,8 @@ void Big_Player::getmove(int& x, int& y) {
 		cin >> y;
 	}
 }
+
+void Big_RandomPlayer::getmove(int& x, int& y) {
+	x = rand() % 9;
+	y = rand() % 9;
+}

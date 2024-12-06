@@ -74,3 +74,12 @@ public:
 	void getmove(int& x, int& y) override;
 
 };
+
+
+class Big_RandomPlayer : public Player<char> {
+public:
+	Big_RandomPlayer(string name, char symbol) : Player<char>(name, symbol) {};
+	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
+	void getmove(int& x, int& y) override;
+
+};
