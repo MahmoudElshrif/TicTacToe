@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BigTicTacToe.cpp" />
     <ClCompile Include="FiveTicTacToe.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
     <ClCompile Include="ToeTacTic.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigTicTacToe.h" />
     <ClInclude Include="FiveTicTacToe.h" />
     <ClInclude Include="BoardGame_Classes.h" />
     <ClInclude Include="ToeTacTic.h" />
