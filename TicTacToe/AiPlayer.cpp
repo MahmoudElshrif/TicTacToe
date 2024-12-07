@@ -35,9 +35,9 @@ void AiPlayer::getmove(int& x, int& y) {
 
 
 int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
-	int eval();
+	int e = eval(isPlayerOne);
 	if (depth == 0 || eval != 0) {
-		return eval();
+		return e;
 	}
 
 	int currentmax = INT_MIN;
@@ -57,5 +57,5 @@ int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
 		}
 	}
 
-	return currentmax;
+	return eval(isPlayerOne);
 }
