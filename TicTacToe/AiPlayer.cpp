@@ -21,7 +21,7 @@ void AiPlayer::getmove(int& x, int& y) {
 			if (symb == symbols[0]) {
 				tempboard[i][j] = 0;
 			}
-			else if (symb == symbols[!isPlayerOne]) {
+			else if (symb == symbols[1]) {
 				tempboard[i][j] = 1;
 			}
 			else {
@@ -57,7 +57,6 @@ int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
 			}
 		}
 	}
-	cout << endl;
 	
 	return e;
 }
