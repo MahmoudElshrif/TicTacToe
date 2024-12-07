@@ -17,15 +17,15 @@ void AiPlayer::getmove(int& x, int& y) {
 			//-1 empty
 			//0 for player one
 			//1 for player 2
-			auto symb = tolower(board[x][y]);
+			char symb = tolower(board[i][j]);
 			if (symb == symbols[0]) {
-				tempboard[x][y] = 0;
+				tempboard[i][j] = 0;
 			}
-			else if (symbol == symbols[!isPlayerOne]) {
-				tempboard[x][y] = 1;
+			else if (symb == symbols[!isPlayerOne]) {
+				tempboard[i][j] = 1;
 			}
 			else {
-				tempboard[x][y] = -1;
+				tempboard[i][j] = -1;
 			}
 		}
 	}
@@ -43,19 +43,21 @@ int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
 	int currentmax = INT_MIN;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			char temp = board[i][j];
-			if (temp == symbols[0] || temp == symbols[1]) continue;
-			board[i][j] = symbol;
-			//gets the opposite of the evalution 
-			int evaluation = -search(x, y,!isPlayerOne,depth - 1);
-			board[i][j] = temp;
+			int temp = tempboard[i][j];
+			if (temp != -1) continue;
+			tempboard[i][j] = isPlayerOne;
+			//gets the opposite of the evalution
+			int evaluation = -search(i, j,!isPlayerOne,depth - 1);
+			tempboard[i][j] = temp;
 			if (currentmax < evaluation) {
 				x = i;
 				y = j;
+
 				currentmax = evaluation;
 			}
 		}
 	}
-
-	return eval(isPlayerOne);
+	cout << endl;
+	
+	return e;
 }

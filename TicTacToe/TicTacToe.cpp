@@ -31,12 +31,15 @@ void reverse() {
     cout << "2. Random Computer\n";
     cin >> choice2;
     
+    ToeTacTic_AiPlayer* player;
     switch (choice1) {
     case 1:
         players[0] = new ToeTacTic_Player(playerXName, 'X');
         break;
     case 2:
-        players[0] = new ToeTacTic_RandomPlayer(playerXName,'X');
+        player = new ToeTacTic_AiPlayer(playerXName, 'X', true);
+        setBoard(B, player);
+        players[0] = player;
         break;
     default:
         cout << "Invalid choice for Player 1. Exiting the game.\n";
@@ -48,7 +51,9 @@ void reverse() {
         players[1] = new ToeTacTic_Player(player2Name, 'O');
         break;
     case 2:
-        players[1] = new ToeTacTic_RandomPlayer(player2Name,'O');
+        player = new ToeTacTic_AiPlayer(player2Name, 'O', false);
+        setBoard(B, player);
+        players[1] = player;
         break;
     default:
         cout << "Invalid choice for Player 2. Exiting the game.\n";

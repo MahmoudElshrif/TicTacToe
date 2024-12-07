@@ -1,6 +1,6 @@
 #pragma once
 #include "BoardGame_Classes.h"
-
+#include "AiPlayer.h"
 
 
 class ToeTacTic_Player : public Player<char> {
@@ -20,6 +20,16 @@ public:
 
 };
 
+class ToeTacTic_AiPlayer : public AiPlayer {
+public:
+
+	ToeTacTic_AiPlayer(string name, char symbol, bool isPlayerOne) : AiPlayer(name, symbol, isPlayerOne) {}
+	int count_moves(int x, int y, int dirx, int diry, int symb, int count = 0);
+	bool countmo(int x, int y, int dirx, int diry, int symb);
+	int eval(bool isPlayerOne) override;
+};
+
+
 class ToeTacTic_Board : public Board<char> {
 public:
 	ToeTacTic_Board();
@@ -28,5 +38,6 @@ public:
 	bool game_is_over() override { return is_win() || is_draw(); }
 	bool update_board(int x, int y, char symbol) override;
 	void display_board() override;
+	friend void setBoard(ToeTacTic_Board* b, ToeTacTic_AiPlayer* ai) { ai->setBoard(b->board, 3, 3); };
 };
 
