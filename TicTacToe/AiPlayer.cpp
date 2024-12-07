@@ -44,7 +44,7 @@ int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			char temp = board[i][j];
-			if (temp != symbols[0] && temp != symbols[1]) continue;
+			if (temp == symbols[0] || temp == symbols[1]) continue;
 			board[i][j] = symbol;
 			//gets the opposite of the evalution 
 			int eval = -search(x, y,!isPlayerOne,depth - 1);
