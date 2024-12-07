@@ -36,7 +36,7 @@ void AiPlayer::getmove(int& x, int& y) {
 
 int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
 	int e = eval(isPlayerOne);
-	if (depth == 0 || eval != 0) {
+	if (depth == 0 || e != 0) {
 		return e;
 	}
 
@@ -47,12 +47,12 @@ int AiPlayer::search(int& x, int& y,bool isPlayerOne,int depth) {
 			if (temp == symbols[0] || temp == symbols[1]) continue;
 			board[i][j] = symbol;
 			//gets the opposite of the evalution 
-			int eval = -search(x, y,!isPlayerOne,depth - 1);
+			int evaluation = -search(x, y,!isPlayerOne,depth - 1);
 			board[i][j] = temp;
-			if (currentmax < eval) {
+			if (currentmax < evaluation) {
 				x = i;
 				y = j;
-				currentmax = eval;
+				currentmax = evaluation;
 			}
 		}
 	}
