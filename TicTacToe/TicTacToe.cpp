@@ -228,7 +228,7 @@ void sus() {
         players[0] = new Sus_Player(playerXName, 'S');
         break;
     case 2:
-        //players[0] = new Sus_RandomPlayer(playerXName, 'X', true);
+        players[0] = new Sus_RandomPlayer(playerXName, 'S');
         break;
     default:
         cout << "Invalid choice for Player 1. Exiting the game.\n";
@@ -240,7 +240,7 @@ void sus() {
         players[1] = new Sus_Player(player2Name, 'U');
         break;
     case 2:
-        //players[1] = new Sus_RandomPlayer(player2Name, 'U', true);
+        players[1] = new Sus_RandomPlayer(player2Name, 'U');
         break;
     default:
         cout << "Invalid choice for Player 2. Exiting the game.\n";

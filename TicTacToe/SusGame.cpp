@@ -49,7 +49,7 @@ void Sus_Board::display_board() {
 
 
 void Sus_RandomPlayer::getmove(int& x, int& y) {
-
+	if (moves >= 9) return;
 	x = rand() % 3;
 	y = rand() % 3;
 }
@@ -61,14 +61,19 @@ int Sus_Board::count(int x, int y, int dirx, int diry, char symb, int count) {
 		return count - 1;
 	}
 	if (count == 2) {
-		return count;
+		return symb == 'S' ? count : 0;
 	}
-	this->count(x + dirx, y + diry, dirx, diry, symb == 'S' ? 'U' : 'S', count + 1);
+	int c = this->count(x + dirx, y + diry, dirx, diry, symb == 'S' ? 'U' : 'S', count + 1);
+	if (c == count && symb == 'U') {
+		return 0;
+	}
+	return c;
 }
 
 bool Sus_Board::countmo(int x, int y, int dirx, int diry, char symb) {
 	int c0 = count(x, y, dirx, diry, symb);
 	int c1 = count(x, y, -dirx, -diry, symb);
+	cout << c0 << " " << c1 << " " << (c0 + c1 + 1) << endl;
 	return (c0 + c1 + 1) >= 3;
 }
 
@@ -91,6 +96,16 @@ bool Sus_Board::update_board(int x, int y, char symbol) {
 	score += countmo(x, y, 1, 0, symbol); // hor
 	score += countmo(x, y, 1, 1, symbol); // other diagonal
 	score += countmo(x, y, 0, 1, symbol); // vert
+	if (score) {
+		if (n_moves % 2 == 1) {
+			cout << "Player 1 ";
+		}
+		else {
+			cout << "Player 2 ";
+		}
+
+		cout << "scored: " << score << endl;
+	}
 	//cout << score << endl;
 
 	if (symbol == 'S') {
