@@ -73,7 +73,7 @@ int Sus_Board::count(int x, int y, int dirx, int diry, char symb, int count) {
 bool Sus_Board::countmo(int x, int y, int dirx, int diry, char symb) {
 	int c0 = count(x, y, dirx, diry, symb);
 	int c1 = count(x, y, -dirx, -diry, symb);
-	cout << c0 << " " << c1 << " " << (c0 + c1 + 1) << endl;
+	//cout << c0 << " " << c1 << " " << (c0 + c1 + 1) << endl;
 	return (c0 + c1 + 1) >= 3;
 }
 

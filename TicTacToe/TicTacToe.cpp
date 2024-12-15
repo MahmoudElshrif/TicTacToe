@@ -20,7 +20,7 @@ void reverse() {
     cin >> player2Name;
     cout << "Choose Player X type:\n";
     cout << "1. Human\n";
-    cout << "2. Random Computer\n";
+    cout << "2. AI\n";
     cin >> choice1;
 
 
@@ -29,7 +29,7 @@ void reverse() {
     cin >> playerXName;
     cout << "Choose Player 2 type:\n";
     cout << "1. Human\n";
-    cout << "2. Random Computer\n";
+    cout << "2. AI\n";
     cin >> choice2;
     
     ToeTacTic_AiPlayer* player;
@@ -207,7 +207,7 @@ void sus() {
 
     // Set up player 1
     cout << "Enter Player X name: ";
-    cin >> playerXName;
+    //cin >> playerXName;
     cout << "Choose Player X type:\n";
     cout << "1. Human\n";
     cout << "2. Random Computer\n";
@@ -216,7 +216,7 @@ void sus() {
 
     // Set up player 2
     cout << "Enter Player 2 name: ";
-    cin >> player2Name;
+    //cin >> player2Name;
     cout << "Choose Player 2 type:\n";
     cout << "1. Human\n";
     cout << "2. Random Computer\n";
