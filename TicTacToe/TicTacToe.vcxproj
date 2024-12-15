@@ -135,14 +135,20 @@
     <ClCompile Include="ToeTacTic.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="3x3X_O.h" />
     <ClInclude Include="AiPlayer.h" />
     <ClInclude Include="BigTicTacToe.h" />
     <ClInclude Include="FiveTicTacToe.h" />
     <ClInclude Include="BoardGame_Classes.h" />
     <ClInclude Include="Four-in-a-row.h" />
     <ClInclude Include="Numerical Tic-Tac-Toe.h" />
+    <ClInclude Include="pyramic.h" />
     <ClInclude Include="SusGame.h" />
     <ClInclude Include="ToeTacTic.h" />
+    <ClInclude Include="wordic.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dic.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

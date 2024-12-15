@@ -59,5 +59,17 @@
     <ClInclude Include="Numerical Tic-Tac-Toe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="wordic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pyramic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="3x3X_O.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dic.txt" />
   </ItemGroup>
 </Project>
