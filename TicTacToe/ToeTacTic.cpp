@@ -45,6 +45,7 @@ void ToeTacTic_RandomPlayer::getmove(int& x,int& y) {
 	y = rand() % 3;
 }
 
+
 int ToeTacTic_AiPlayer::count_moves(int x, int y, int dirx, int diry, int symb, int count) {
 	if (x > 2 || y > 2 || x < 0 || y < 0)
 		return count - 1;
