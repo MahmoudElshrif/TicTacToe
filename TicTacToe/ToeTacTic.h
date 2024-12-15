@@ -14,7 +14,7 @@ public:
 
 class ToeTacTic_RandomPlayer : public Player<char> {
 public:
-	ToeTacTic_RandomPlayer(string name,char symbol) : Player<char>(name,symbol) {};
+	ToeTacTic_RandomPlayer(string name, char symbol) : Player<char>(name, symbol) {};
 	//void setBoard(ToeTacTic_Board* board) { Player<char>::setBoard/*(board);*/ };
 	void getmove(int& x, int& y) override;
 
@@ -24,9 +24,9 @@ class ToeTacTic_AiPlayer : public AiPlayer {
 public:
 
 	ToeTacTic_AiPlayer(string name, char symbol, bool isPlayerOne) : AiPlayer(name, symbol, isPlayerOne) {}
-	int count_moves(int x, int y, int dirx, int diry, int symb, int count = 0);
-	bool countmo(int x, int y, int dirx, int diry, int symb);
-	int eval(bool isPlayerOne) override;
+	int count_moves(int x, int y, int dirx, int diry, int symb, int count = 0) const;
+	bool countmo(int x, int y, int dirx, int diry, int symb) const;
+	int eval(bool isPlayerOne) const override;
 };
 
 

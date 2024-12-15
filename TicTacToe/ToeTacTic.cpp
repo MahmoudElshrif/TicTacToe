@@ -40,13 +40,12 @@ void ToeTacTic_Board::display_board() {
 }
 
 
-void ToeTacTic_RandomPlayer::getmove(int& x,int& y) {
+void ToeTacTic_RandomPlayer::getmove(int& x, int& y) {
 	x = rand() % 3;
 	y = rand() % 3;
 }
 
-
-int ToeTacTic_AiPlayer::count_moves(int x, int y, int dirx, int diry, int symb, int count) {
+int ToeTacTic_AiPlayer::count_moves(int x, int y, int dirx, int diry, int symb, int count) const {
 	if (x > 2 || y > 2 || x < 0 || y < 0)
 		return count - 1;
 	if (tempboard[x][y] != symb) {
@@ -58,11 +57,11 @@ int ToeTacTic_AiPlayer::count_moves(int x, int y, int dirx, int diry, int symb, 
 	return count_moves(x + dirx, y + diry, dirx, diry, symb, count + 1);
 }
 
-bool ToeTacTic_AiPlayer::countmo(int x, int y, int dirx, int diry, int symb) {
+bool ToeTacTic_AiPlayer::countmo(int x, int y, int dirx, int diry, int symb) const {
 	return count_moves(x, y, dirx, diry, symb) + count_moves(x, y, -dirx, -diry, symb) + 1 >= 3;
 }
 
-int ToeTacTic_AiPlayer::eval(bool isPlayerOne) {
+int ToeTacTic_AiPlayer::eval(bool isPlayerOne) const {
 	for (int x = 0; x < 3; x++) {
 		for (int y = 0; y < 3; y++) {
 			if (tempboard[x][y] == -1) continue;
@@ -71,7 +70,7 @@ int ToeTacTic_AiPlayer::eval(bool isPlayerOne) {
 					if ((i == 0 && j == 0)) continue;
 					auto ev = countmo(x, y, i, j, tempboard[x][y]);
 					if (ev) {
-						return (tempboard[x][y] == isPlayerOne) ? 1 : -1;
+						return (tempboard[x][y] != isPlayerOne) ? 1 : -1;
 					}
 				}
 			}
