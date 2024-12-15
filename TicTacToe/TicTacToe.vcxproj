@@ -139,6 +139,8 @@
     <ClInclude Include="BigTicTacToe.h" />
     <ClInclude Include="FiveTicTacToe.h" />
     <ClInclude Include="BoardGame_Classes.h" />
+    <ClInclude Include="Four-in-a-row.h" />
+    <ClInclude Include="Numerical Tic-Tac-Toe.h" />
     <ClInclude Include="SusGame.h" />
     <ClInclude Include="ToeTacTic.h" />
   </ItemGroup>

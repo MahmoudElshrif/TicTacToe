@@ -53,5 +53,11 @@
     <ClInclude Include="SusGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Four-in-a-row.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Numerical Tic-Tac-Toe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
