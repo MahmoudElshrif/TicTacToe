@@ -71,6 +71,17 @@ public:
 	bool is_win() override { return win; };
 	bool is_draw() override { return draw; };
 	bool game_is_over() override { return is_win() || is_draw(); }
+	vector<vector<T>> getBoard() {
+		vector<vector<T>> v(9);
+		for (int i = 0; i < 9; i++) {
+			v[i] = vector<T>(9);
+			for (int j = 0; j < 9; j++) {
+				v[i][j] = board[i][j];
+			}
+		}
+
+		return v;
+	}
 };
 
 template <typename T>
@@ -104,6 +115,8 @@ template <typename T>
 BigBoard<T>::BigBoard() {
 	boards = new SubBoard<T> * [3];
 	board = new char* [3];
+	this->rows = 9;
+	this->columns = 9;
 	for (int i = 0; i < 3; i++) {
 		boards[i] = new SubBoard<T>[3];
 		board[i] = new char[3] {'-', '-', '-' };
@@ -142,7 +155,6 @@ bool BigBoard<T>::update_board(int x, int y, T symb) {
 
 	int counter = 0;
 	board[boardx][boardy] = boards[boardx][boardy].getValue();
-
 	win = false;
 	win = win || countmo(board, boardx, boardy, 1, -1, symb);
 	win = win || countmo(board, boardx, boardy, 1, 0, symb);
