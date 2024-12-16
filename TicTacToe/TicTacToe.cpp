@@ -204,8 +204,8 @@ void bigboard() {
 void sus() {
     srand(time(0));
     int choice1, choice2;
-    Sus_Player* players[2];
-    Sus_Board* B = new Sus_Board();
+    Sus_Player<char>* players[2];
+    Sus_Board<char>* B = new Sus_Board<char>();
     string playerXName, player2Name;
 
     cout << "Welcome to Inverse Tic Tac Toe (Toe Tac Tic)\n";
@@ -230,10 +230,10 @@ void sus() {
     //Sus_AiPlayer* player;
     switch (choice1) {
     case 1:
-        players[0] = new Sus_Player(playerXName, 'S');
+        players[0] = new Sus_Player<char>(playerXName, 'S');
         break;
     case 2:
-        players[0] = new Sus_RandomPlayer(playerXName, 'S');
+        players[0] = new Sus_RandomPlayer<char>(playerXName, 'S');
         break;
     default:
         cout << "Invalid choice for Player 1. Exiting the game.\n";
@@ -242,10 +242,10 @@ void sus() {
 
     switch (choice2) {
     case 1:
-        players[1] = new Sus_Player(player2Name, 'U');
+        players[1] = new Sus_Player<char>(player2Name, 'U');
         break;
     case 2:
-        players[1] = new Sus_RandomPlayer(player2Name, 'U');
+        players[1] = new Sus_RandomPlayer<char>(player2Name, 'U');
         break;
     default:
         cout << "Invalid choice for Player 2. Exiting the game.\n";
