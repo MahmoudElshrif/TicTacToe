@@ -144,7 +144,7 @@ void bigboard() {
     srand(time(0));
     int choice1, choice2;
     Player<char>* players[2];
-    BigBoard* B = new BigBoard();
+    BigBoard<char>* B = new BigBoard<char>();
     string playerXName, player2Name;
 
     cout << "Welcome to Inverse Big Tic Tac Toe\n";
@@ -168,10 +168,10 @@ void bigboard() {
 
     switch (choice1) {
     case 1:
-        players[0] = new Big_Player(playerXName, 'X');
+        players[0] = new Big_Player<char>(playerXName, 'X');
         break;
     case 2:
-        players[0] = new Big_RandomPlayer(playerXName, 'X');
+        players[0] = new Big_RandomPlayer<char>(playerXName, 'X');
         break;
     default:
         cout << "Invalid choice for Player 1. Exiting the game.\n";
@@ -180,10 +180,10 @@ void bigboard() {
 
     switch (choice2) {
     case 1:
-        players[1] = new Big_Player(player2Name, 'O');
+        players[1] = new Big_Player<char>(player2Name, 'O');
         break;
     case 2:
-        players[1] = new Big_RandomPlayer(player2Name, 'O');
+        players[1] = new Big_RandomPlayer<char>(player2Name, 'O');
         break;
     default:
         cout << "Invalid choice for Player 2. Exiting the game.\n";
